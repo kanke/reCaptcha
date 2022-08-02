@@ -87,3 +87,38 @@ here):
 Notice that the response contains an attribute `success` which should be the
 trigger to let the request be processed (`true` indicates that the service
 thinks that the user is a human - poor thing -, `false` it should be a bot).
+
+## Steps
+
+Useful diagrams of spike
+https://cloud.google.com/static/recaptcha-enterprise/images/sequence_diagramv1.svg
+
+https://cloud.google.com/static/recaptcha-enterprise/images/flowchart.svg
+
+Docs
+https://cloud.google.com/recaptcha-enterprise/docs/choose-key-type ->  Score-based site key (Recommended)
+
+Steps
+- I enabled recaptcha enterprise API using steps found here -> https://cloud.google.com/recaptcha-enterprise/docs/set-up-non-google-cloud-environments-api-keys
+  https://console.cloud.google.com/apis/library/recaptchaenterprise.googleapis.com?_ga=2.149945471.831651267.1659344202-1298407974.1659344202
+
+- I created API Key after selecting a project-> ******
+  https://console.cloud.google.com/apis/credentials?project=trans-falcon-358109
+
+- I selected Setting up reCAPTCHA Enterprise on non-Google Cloud environments using API Keys as my setup method
+
+I selected the type of reCaptcha keys as per -> https://cloud.google.com/recaptcha-enterprise/docs/keys *Score-based site keys* on *web*
+
+- I created reCaptcha/site keys using the steps here. I added localhost as an allowed domain -> https://cloud.google.com/recaptcha-enterprise/docs/create-key#creating_a_site_key
+  https://console.cloud.google.com/security/recaptcha?_ga=2.81392350.831651267.1659344202-1298407974.1659344202&project=trans-falcon-358109
+  reCaptcha/site keys -> ******
+
+- I installed score-based site keys (no challenge) on the website using steps here -> https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages
+
+Integration
+- Integrate the key with the frontend https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages#frontend_integration_score
+  - Add reCAPTCHA on an HTML button <- Option I used
+  - Using deets from https://console.cloud.google.com/security/recaptcha/******/details?project=******
+- Assess the reCAPTCHA response token https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
+  - Third-party cloud or on-premises that do not support service accounts…..reCAPTCHA Enterprise REST API, using API keys for authentication
+  - Verify the reposes using -> https://developers.google.com/recaptcha/docs/v3

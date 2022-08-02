@@ -18,7 +18,7 @@ app.post('/user', function(req, res, next) {
     method: 'post',
     url: 'https://www.google.com/recaptcha/api/siteverify',
     params: {
-      secret: "6LdHwjkhAAAAAIB_oYeSZF_9qDJVJDRX96tEwpz2",
+      secret: "******",
       response: req.body["g-recaptcha-response"]
     }
   }
