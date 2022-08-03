@@ -122,3 +122,14 @@ Integration
 - Assess the reCAPTCHA response token https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
   - Third-party cloud or on-premises that do not support service accounts…..reCAPTCHA Enterprise REST API, using API keys for authentication
   - Verify the reposes using -> https://developers.google.com/recaptcha/docs/v3
+  
+  
+  I’m sure you must have encountered and been annoyed by the captcha challenges on web pages before. That was the reCAPTCHA v2. In addition to not being very user-friendly, it also increases your page load times. You can partially mitigate this using lazy loading but it is still not the ideal way.
+
+Then came reCAPTCHA v3 which uses machine learning to generate a confidence score based on user/bot interaction with the web page. The lower the score, the lesser the confidence that the interaction is made by a human. Now, this is great because it solves both of the challenges mentioned above. And it is up to you to take actions based on the score. You can choose to block the traffic, enforce 2FA, etc. However, it brings out different types of challenges and limitations:
+
+v3 only generates one of the 4 scores : 0.1, 0.4, 0.7 and 0.9 which is not ideal.
+It only tracks user interactions on the particular web page that you integrated it with.
+It doesn’t integrate with mobile applications.
+Since you have no control over the backend, you can’t tune the model based on your site-specific needs.
+Voila!! Here comes reCAPTCHA Enterprise to solve all your problems with more granular confidence scores and ML Model Tuning API, you can mitigate all the challenges from v3 and it provides you with greater control and easy integrations with your mobile apps.
